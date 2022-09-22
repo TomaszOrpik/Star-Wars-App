@@ -1,0 +1,37 @@
+<div
+  class="card card-flip h-100"
+  *ngIf="movie"
+  [id]="'movie_card' + movie.episode_id"
+>
+  <div class="card-front">
+    <img
+      class="poster"
+      [src]="getPoster(movie.episode_id)"
+      [alt]="movie.title"
+    />
+  </div>
+  <div class="card-back bg-white">
+    <div class="card-body">
+      <div class="text-container">
+        <span class="episode">Episode {{ movie.episode_id }}</span>
+      </div>
+      <div class="text-container">
+        <span class="card-title">
+          {{ movie.title }}
+        </span>
+      </div>
+      <div class="text-container">
+        <p class="card-text">{{ movie.opening_crawl }}</p>
+      </div>
+      <div class="movie-card-btn-container">
+        <button
+          [id]="'movie_card_btn' + movie.episode_id"
+          class="btn btn-outline-primary movie-card-btn center-block"
+          (click)="onDetailsClicked(movie)"
+        >
+          See Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="main-container">
+  <div
+    class="background"
+    [ngClass]="(isOpen | async) ? 'visible' : 'hidden'"
+    (click)="close()"
+  ></div>
+  <div #details class="sidepanel">
+    <div class="header-container">
+      <div class="closebtn" (click)="close()">X</div>
+      <div class="header-name">{{ title | async }}</div>
+    </div>
+    <div *ngIf="isLoading | async; then loading; else display"></div>
+    <ng-template #loading>
+      <div class="spinner-container">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #display>
+      <div [ngSwitch]="type | async">
+        <app-movie-details
+          *ngSwitchCase="'movie'"
+          [movie]="$any(currentDetails | async)"
+          (selectedItem)="onSelectedItemChange($event)"
+        ></app-movie-details>
+        <app-planet-details
+          *ngSwitchCase="'planet'"
+          [planet]="$any(currentDetails | async)"
+          (selectedItem)="onSelectedItemChange($event)"
+        ></app-planet-details>
+        <app-character-details
+          *ngSwitchCase="'character'"
+          [character]="$any(currentDetails | async)"
+          (selectedItem)="onSelectedItemChange($event)"
+        ></app-character-details>
+        <app-starship-details
+          *ngSwitchCase="'starship'"
+          [starship]="$any(currentDetails | async)"
+          (selectedItem)="onSelectedItemChange($event)"
+        ></app-starship-details>
+      </div>
+    </ng-template>
+  </div>
+</div>

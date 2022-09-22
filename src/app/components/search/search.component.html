@@ -1,0 +1,151 @@
+<div class="search-container">
+  <img class="logo" src="../../../assets/logo.png" />
+  <div class="search-form-container">
+    <input
+      autocomplete="off"
+      id="searchInput"
+      #search
+      class="form-control form-control-sm"
+      type="text"
+      placeholder="Start typing to search..."
+      (focus)="focus()"
+      (focusout)="focusOut()"
+    />
+    <div class="suggestions" #suggestions>
+      <div
+        class="suggestions-row"
+        *ngIf="(results | async)?.length === 0; else displayResult"
+      >
+        No Results
+      </div>
+      <ng-template #displayResult>
+        <div
+          class="suggestions-row"
+          *ngIf="isLoading | async; else resultsView"
+        >
+          {{ loading }}
+        </div>
+        <ng-template #resultsView>
+          <div *ngFor="let result of results | async">
+            <!--planet-->
+            <div
+              [id]="'suggestion_planet_' + $any(result).value.name"
+              *ngIf="result.type === 'planets'"
+              class="suggestions-row suggestion-correct"
+              (click)="resultSelected(result.value)"
+            >
+              <span class="suggestion-row-category">Planets </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              <span class="suggestion-row-value">
+                {{ $any(result).value.name }}</span
+              >
+            </div>
+            <!--character-->
+            <div
+              *ngIf="result.type === 'people'"
+              class="suggestions-row suggestion-correct"
+              (click)="resultSelected(result.value)"
+            >
+              <span class="suggestion-row-category">People </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              <span class="suggestion-row-value">
+                {{ $any(result).value.name }}</span
+              >
+            </div>
+            <!--film-->
+            <div
+              *ngIf="result.type === 'films'"
+              class="suggestions-row suggestion-correct"
+              (click)="resultSelected(result.value)"
+            >
+              <span class="suggestion-row-category">Films </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              <span class="suggestion-row-value">
+                {{ $any(result).value.title }}</span
+              >
+            </div>
+            <!--starship-->
+            <div
+              *ngIf="result.type === 'starships'"
+              class="suggestions-row suggestion-correct"
+              (click)="resultSelected(result.value)"
+            >
+              <span class="suggestion-row-category">Starships </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              <span class="suggestion-row-value">
+                {{ $any(result).value.name }}</span
+              >
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+  <div class="logout" (click)="signOut()" id="logoutBtn">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-box-arrow-right icon"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"
+      />
+      <path
+        fill-rule="evenodd"
+        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+      />
+    </svg>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div
+  [ngClass]="
+    (movies | async)?.length === 0
+      ? 'main-without-padding'
+      : 'main-with-padding'
+  "
+>
+  <div *ngIf="(movies | async)?.length === 0; then loading; else display"></div>
+  <ng-template #loading>
+    <div class="spinner-container">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #display>
+    <div class="card-group">
+      <div class="row row-cols-2 row-cols-lg-3">
+        <div class="col" *ngFor="let movie of movies | async">
+          <app-movie-card [movie]="movie"></app-movie-card>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

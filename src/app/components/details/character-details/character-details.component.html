@@ -1,0 +1,106 @@
+<div class="description-container" *ngIf="character">
+  <div class="card-group">
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Height</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ character.height }} cm</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Mass</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ character.mass }} kg</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Hair Color</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ character.hair_color }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Skin Color</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ character.skin_color }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-group">
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Eye Color</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ character.eye_color }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Birth Year</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ character.birth_year }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Gender</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ character.gender }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Homeworld</span>
+      </div>
+      <div class="center-text card-body">
+        <button
+          class="btn btn-primary text-white"
+          (click)="handleSelection(character.homeworld)"
+        >
+          {{ character.homeworld.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Films</span>
+    </div>
+    <div class="card-body center-text">
+      <button
+        class="btn btn-primary text-white"
+        (click)="handleSelection(film)"
+        *ngFor="let film of character.films"
+      >
+        {{ film.title }}
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Starships</span>
+    </div>
+    <div class="card-body center-text">
+      <button
+        class="btn btn-primary text-white"
+        (click)="handleSelection(starship)"
+        *ngFor="let starship of character.starships"
+      >
+        {{ starship.name }}
+      </button>
+    </div>
+  </div>
+</div>

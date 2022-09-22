@@ -1,0 +1,101 @@
+<div class="description-container" *ngIf="planet">
+  <div class="card-group">
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Name</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ planet.name }}</span>
+      </div>
+    </div>
+    <div class="card" id="planet_details_rotation_period">
+      <div class="center-text card-title bold">
+        <span>Rotation Period</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ planet.rotation_period }} hours</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Orbital Period</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ planet.orbital_period }} days</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span class="bold card-title">Diameter</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ planet.diameter }} km</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-group">
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Gravity</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ planet.gravity }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Terrain</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ planet.terrain }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Surface Water</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ planet.surface_water }}%</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Population</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ planet.population }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Residents</span>
+    </div>
+    <div class="card-body center-text">
+      <button
+        class="btn btn-primary text-white"
+        (click)="handleSelection(resident)"
+        *ngFor="let resident of planet.residents"
+      >
+        {{ resident.name }}
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Films</span>
+    </div>
+    <div class="card-body center-text">
+      <button
+        class="btn btn-primary text-white"
+        (click)="handleSelection(film)"
+        *ngFor="let film of planet.films"
+      >
+        {{ film.title }}
+      </button>
+    </div>
+  </div>
+</div>

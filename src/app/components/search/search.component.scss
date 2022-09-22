@@ -1,0 +1,112 @@
+@import "../../variables.scss";
+
+.search-container {
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  width: calc(100vw - 75px);
+}
+.logo {
+  padding: 8px 15px 0 15px;
+  width: 150px;
+}
+.search-form-container {
+  width: calc(100vw - 100px);
+  margin: 0 auto;
+}
+
+.form-control {
+  position: absolute;
+  top: 10px;
+  z-index: 5;
+  height: 50px;
+  margin-top: 10px;
+  width: calc(100% - 268.3px);
+}
+
+.suggestions {
+  padding-top: 10px;
+  transform: translateY(53px);
+  position: absolute;
+  z-index: 4;
+  width: calc(100% - 268.3px);
+  border-radius: 0 0 5px 5px;
+  border: 1px solid $primary-color;
+  background-color: white;
+  transition: 0.3s;
+  overflow-y: auto;
+  max-height: 0;
+}
+.suggestions-row {
+  width: 100%;
+  padding: 5px;
+}
+
+.suggestion-row-category {
+  font-weight: 800;
+  color: black;
+}
+.bi-arrow-right {
+  color: black;
+}
+.suggestion-row-value {
+  color: black;
+}
+
+.suggestion-correct:hover {
+  background-color: $primary-color;
+  cursor: pointer;
+  .suggestion-row-category {
+    color: white;
+  }
+  .bi-arrow-right {
+    color: white;
+  }
+  .suggestion-row-value {
+    color: white;
+  }
+}
+
+.logout {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  width: 75px;
+  margin: 20px;
+  padding-left: 9px;
+  padding-top: -2px;
+  border: 1px solid #fff;
+  border-radius: 9px;
+  background-color: transparent;
+}
+
+.logout:hover {
+  color: $primary-color;
+  border-color: $primary-color;
+  background-color: #353935;
+  cursor: pointer;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  transform: translateY(-1px);
+}
+
+.form-control:focus {
+  border-color: $primary-color;
+  box-shadow: 0 0 0 0.25rem rgb(255 232 31 / 25%);
+}
+
+@media only screen and (min-width: 1900px) {
+  .form-control {
+    width: 50%;
+  }
+  .search-form-container {
+    width: 50%;
+  }
+  .suggestions {
+    width: 50%;
+  }
+}

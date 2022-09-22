@@ -1,0 +1,29 @@
+.card {
+  position: absolute;
+  top: 2%;
+  left: calc(50% - 250px);
+  width: 500px;
+  padding: 10px 30px;
+}
+.logo-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.logo {
+  width: 100%;
+}
+.text-center {
+  text-align: center;
+}
+.error {
+  color: red;
+}
+.success {
+  color: green;
+}
+.btn {
+  width: 100%;
+  margin-bottom: 10px;
+}

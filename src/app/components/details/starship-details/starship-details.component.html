@@ -1,0 +1,136 @@
+<div class="description-container" *ngIf="starship">
+  <div class="card-group">
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Model</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.model }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Manufacturer</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.manufacturer }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Cost in Credits</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.cost_in_credits }} GC</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Length</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.length }} m</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-group">
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Max Atmosphering Speed</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.max_atmosphering_speed }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Crew</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.crew }} persons</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Passengers</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.passengers }} persons</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Cargo Capacity</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.cargo_capacity }} kg</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-group">
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Consumables</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.consumables }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Hyperdrive Rating</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.hyperdrive_rating }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>MGLT</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.MGLT }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Class</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ starship.starship_class }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Pilots</span>
+    </div>
+    <div class="card-body center-text">
+      <button
+        class="btn btn-primary text-white"
+        (click)="handleSelection(pilot)"
+        *ngFor="let pilot of starship.pilots"
+      >
+        {{ pilot.name }}
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Films</span>
+    </div>
+    <div class="card-body center-text">
+      <button
+        class="btn btn-primary"
+        (click)="handleSelection(film)"
+        *ngFor="let film of starship.films"
+      >
+        {{ film.title }}
+      </button>
+    </div>
+  </div>
+</div>

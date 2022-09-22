@@ -1,0 +1,91 @@
+<div class="description-container" *ngIf="movie">
+  <div class="card-group">
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Title</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ movie.title }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Director</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ movie.director }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Producer</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ movie.producer }}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="center-text card-title bold">
+        <span>Release Date</span>
+      </div>
+      <div class="center-text card-body">
+        <span>{{ movie.release_date }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Opening</span>
+    </div>
+    <div class="center-text card-body">
+      <span id="movie_opening">{{ movie.opening_crawl }}</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Characters</span>
+    </div>
+    <div class="center-text card-body">
+      <button
+        class="btn btn-primary text-white"
+        (click)="handleSelection(character)"
+        *ngFor="let character of movie.characters"
+      >
+        {{ character.name }}
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Planets</span>
+    </div>
+    <div class="center-text card-body">
+      <button
+        [id]="'movie_details_planet_btn_' + planet.name"
+        class="btn btn-primary text-white"
+        (click)="handleSelection(planet)"
+        *ngFor="let planet of movie.planets"
+      >
+        {{ planet.name }}
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="center-text card-title bold">
+      <span>Starships</span>
+    </div>
+    <div class="center-text card-body">
+      <button
+        class="btn btn-primary text-white"
+        (click)="handleSelection(starship)"
+        *ngFor="let starship of movie.starships"
+      >
+        {{ starship.name }}
+      </button>
+    </div>
+  </div>
+</div>
